@@ -12,12 +12,12 @@
 		"commit": "git-cz"
 	},
 	"dependencies": {
-		"eslint": "^7.28.0",
 		"react": "^17.0.0",
 		"react-dom": "^17.0.0"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^12.1.4",
+		"@types/node": "^15.12.2",
 		"@types/react": "^17.0.0",
 		"@types/react-dom": "^17.0.0",
 		"@typescript-eslint/eslint-plugin": "^4.26.1",
@@ -26,6 +26,7 @@
 		"commitizen": "^4.2.4",
 		"commitlint-config-cz": "^0.13.2",
 		"cz-customizable": "^6.3.0",
+		"eslint": "^7.28.0",
 		"husky": "^6.0.0",
 		"lint-staged": "^11.0.0",
 		"prettier": "^2.3.1",
