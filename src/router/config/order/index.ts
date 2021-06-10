@@ -4,50 +4,26 @@ import { PURCHASE_ORDER_LIST, PURCHASE_ORDER_DETAIL, SALES_ORDER_LIST, SALES_ORD
 
 const routes: IRouteConfig[] = [
 	{
+		pageTitle: '采购订单',
 		path: PURCHASE_ORDER_LIST,
 		component: OrderManage.PurchaseOrderList,
-		breadcrumb: [
-			{ title: '订单管理', path: PURCHASE_ORDER_LIST },
-			{ title: '采购订单', path: '' }
-		],
 		exact: true,
-		pageTitle: '采购订单',
-		useLayout: true
+		useLayout: true,
+		breadcrumb: [
+			{ title: '订单列表', path: PURCHASE_ORDER_LIST },
+			{ title: '订单详情', path: PURCHASE_ORDER_DETAIL }
+		]
 	},
 	{
-		path: PURCHASE_ORDER_DETAIL,
-		component: OrderManage.PurchaseOrderDetail,
-		breadcrumb: [
-			{ title: '订单管理', path: PURCHASE_ORDER_LIST },
-			{ title: '采购订单', path: PURCHASE_ORDER_LIST },
-			{ title: '订单详情', path: '' }
-		],
-		exact: true,
-		pageTitle: '采购订单-订单详情',
-		useLayout: true
-	},
-	{
+		pageTitle: '销售订单',
 		path: SALES_ORDER_LIST,
 		component: OrderManage.SalesOrderList,
-		breadcrumb: [
-			{ title: '订单管理', path: PURCHASE_ORDER_LIST },
-			{ title: '销售订单', path: SALES_ORDER_LIST }
-		],
 		exact: true,
-		pageTitle: '销售订单',
-		useLayout: true
-	},
-	{
-		path: SALES_ORDER_DETAIL,
-		component: OrderManage.SalesOrderDetail,
+		useLayout: true,
 		breadcrumb: [
-			{ title: '订单管理', path: PURCHASE_ORDER_LIST },
-			{ title: '销售订单', path: SALES_ORDER_LIST },
+			{ title: '订单列表', path: SALES_ORDER_LIST },
 			{ title: '订单详情', path: SALES_ORDER_DETAIL }
-		],
-		exact: true,
-		pageTitle: '销售订单-订单详情',
-		useLayout: true
+		]
 	}
 ]
 
