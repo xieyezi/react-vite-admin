@@ -35,8 +35,7 @@ const SideMenu: React.FC = () => {
 	const { pathname } = useLocation()
 	const [openKeys, setOpenkeys] = useState<string[]>([])
 	const [selectedKeys, setSelectedKeys] = useState<string[]>([])
-
-	const [addTag, activeTagId] = useStore((state) => [state.addTag, state.activeTagId])
+	const addTag = useStore((state) => state.addTag)
 
 	// 首次进入时，默认选择第一项
 	useEffect(() => {
@@ -49,7 +48,7 @@ const SideMenu: React.FC = () => {
 				closable: false
 			})
 		}
-	}, [menus])
+	}, [])
 
 	// setSelectedKeys 和 path 双向绑定
 	useEffect(() => {
