@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Index: React.FC = () => {
-	return <div>logup</div>
+	return <div>supplier-manage-list</div>
 }
 
 export default Index

@@ -1,8 +1,7 @@
 import { IRouteConfig } from '../../typing'
 import LoginPage from '@pages/login'
-import LogupPage from '@pages/logup'
-import { LOGIN, LOGUP } from './path'
-import { PURCHASE_ORDER_LIST } from '../order/path'
+import { LOGIN } from './path'
+import { ORDER_LIST } from '../order-manage/path'
 
 const routes: IRouteConfig[] = [
 	{
@@ -10,18 +9,10 @@ const routes: IRouteConfig[] = [
 		component: LoginPage,
 		breadcrumb: [],
 		exact: true,
-		pageTitle: '登录',
+		pageTitle: '首页',
 		useLayout: false,
 		auth: true,
-		redirect: PURCHASE_ORDER_LIST
-	},
-	{
-		path: LOGUP,
-		component: LogupPage,
-		breadcrumb: [],
-		exact: true,
-		pageTitle: '注册',
-		useLayout: false
+		redirect: ORDER_LIST
 	}
 ]
 

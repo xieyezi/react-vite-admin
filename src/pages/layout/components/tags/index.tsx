@@ -3,16 +3,22 @@ import { Tabs } from 'antd'
 import { useHistory, useLocation } from 'react-router-dom'
 import TagsViewAction from './tagAction'
 import useStore from '@src/stores/headerTag'
+import menuList, { MenuItem } from '@src/menus/config'
 
 const { TabPane } = Tabs
 
 const Index: FC = () => {
-	const [tags, activeTagId] = useStore((state) => [state.tags, state.activeTagId])
-
 	const history = useHistory()
 	const location = useLocation()
+	const [tags, activeTagId, addTag, removeTag, setActiveTag] = useStore((state) => [
+		state.tags,
+		state.activeTagId,
+		state.addTag,
+		state.removeTag,
+		state.setActiveTag
+	])
 
-	// onClick tag
+	// Tabs change
 	const onChange = (key: string) => {
 		const tag = tags.find((tag) => tag.id === key)
 		if (tag) {
@@ -20,12 +26,6 @@ const Index: FC = () => {
 			history.push(tag.path)
 		}
 	}
-
-	// onRemove tag
-	const onClose = (targetKey: string) => {
-		console.log(targetKey)
-	}
-
 	const setCurrentTag = useCallback(
 		(id?: string) => {
 			const tag = tags.find((item) => {
@@ -35,39 +35,43 @@ const Index: FC = () => {
 					return item.path === location.pathname
 				}
 			})
-
-			if (tag) {
-				// 设置进state
-			}
+			if (tag) setActiveTag(tag.id)
 		},
 		[location.pathname, tags]
 	)
 
-	// useEffect(() => {
-	// 	if (menuList.length) {
-	// 		const menu = menuList.find((m) => m.path === location.pathname)
-	// 		if (menu) {
-	// 			// Initializes dashboard page.
-	// 			// const dashboard = menuList[0]
-	// 			// dispatch(
-	// 			// 	addTag({
-	// 			// 		path: dashboard.path,
-	// 			// 		label: dashboard.label,
-	// 			// 		id: dashboard.key,
-	// 			// 		closable: false
-	// 			// 	})
-	// 			// )
-	// 			// dispatch(
-	// 			// 	addTag({
-	// 			// 		path: menu.path,
-	// 			// 		label: menu.label,
-	// 			// 		id: menu.key,
-	// 			// 		closable: true
-	// 			// 	})
-	// 			// )
-	// 		}
-	// 	}
-	// }, [location.pathname, menuList])
+	// onRemove tag
+	const onClose = (targetKey: string) => {
+		removeTag(targetKey)
+	}
+
+	const findMenuByPath = (menus: MenuItem[], pathName: string): MenuItem | undefined => {
+		for (const item of menus) {
+			if (item.path) {
+				if (item.path == pathName) return item
+			}
+			if (item.children) {
+				const res = findMenuByPath(item.children, pathName)
+				if (res) return res
+			}
+		}
+	}
+
+	// tab 和 path 双向绑定
+	useEffect(() => {
+		if (menuList.length) {
+			const { pathname } = location
+			const menu = findMenuByPath(menuList, pathname)
+			if (menu) {
+				addTag({
+					path: menu.path as string,
+					label: menu.title,
+					id: menu.key,
+					closable: true
+				})
+			}
+		}
+	}, [location.pathname])
 
 	return (
 		<div id="pageTabs" style={{ background: '#fff', padding: '6px 4px' }}>
@@ -81,7 +85,7 @@ const Index: FC = () => {
 				tabBarExtraContent={<TagsViewAction />}
 			>
 				{tags.map((tag) => (
-					<TabPane tab={tag} key={tag.id} closable={tag.closable} />
+					<TabPane tab={tag.label} key={tag.id} closable={tag.closable} />
 				))}
 			</Tabs>
 		</div>

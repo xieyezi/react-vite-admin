@@ -1,8 +1,8 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import routes from './config'
+import { Route, Switch, BrowserRouter as Router } from 'react-router-dom'
+import routes from './config/index'
 import { splitTypeOfRoute, omitRouteRenderProperties } from './utils'
-import Layout from '@pages/layout'
+import Layout from '../pages/layout'
 import Auth from '@components/auth'
 
 const [basicRoute, layoutRoute] = splitTypeOfRoute(routes)

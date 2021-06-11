@@ -3,6 +3,7 @@ import create from 'zustand'
 export type TagItem = {
 	id: string
 	path: string
+	label: string
 	closable: boolean
 }
 
@@ -11,30 +12,30 @@ export interface TagState {
 	activeTagId: TagItem['id']
 	setActiveTag: (tag: string) => void
 	addTag: (tagItem: TagItem) => void
-	removetTag: (tagItem: TagItem) => void
+	removeTag: (targetId: string) => void
 	removeOtherTag: () => void
 	removeAllTag: () => void
 }
 
 const useStore = create<TagState>((set, get) => ({
 	tags: [],
-	activeTagId: '0',
+	activeTagId: '',
 	setActiveTag: (tag) => set({ activeTagId: tag }),
 	addTag: (tagItem) => {
 		const { tags, setActiveTag } = get()
-		set({ tags: [...tags, tagItem] })
-		setActiveTag(tagItem.id)
-	},
-	removetTag: (tagItem) => {
-		const { tags, activeTagId } = get()
-		const targetKey = tagItem.id
-		// 首页不能被关闭
-		if (targetKey === tags[0].id) {
-			return
+		const isExist = tags.filter((e) => e.id === tagItem.id)
+		if (isExist.length === 0) {
+			set({ tags: [...tags, tagItem] })
+			setActiveTag(tagItem.id)
+		} else {
+			setActiveTag(tagItem.id)
 		}
-		const tagList = tags.filter((tag) => tag.id !== targetKey)
-		if (tagList.length) {
-			if (activeTagId === targetKey) {
+	},
+	removeTag: (targetId) => {
+		const { tags, activeTagId } = get()
+		const tagList = tags.filter((tag) => tag.id !== targetId)
+		if (tagList.length > 0) {
+			if (activeTagId === targetId) {
 				const index = tags.findIndex((e) => e.id == activeTagId)
 				set({
 					activeTagId: tags[index - 1].id,

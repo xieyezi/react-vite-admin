@@ -2,7 +2,6 @@ import React, { FC, useState } from 'react'
 import { LogoutOutlined, UserOutlined, MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons'
 import { Layout, Dropdown, Menu } from 'antd'
 import { useHistory } from 'react-router-dom'
-import ReactSvg from '/logo.svg'
 import AntdSvg from '/antd.svg'
 import genji from '@assets/image/husky.png'
 import styles from '../../style.module.less'
@@ -54,7 +53,6 @@ const Index: FC<HeaderProps> = ({ collapsed, toggle }) => {
 	return (
 		<Header className={styles.layoutPageHeader}>
 			<div className={styles.logo} style={{ width: collapsed ? 80 : 200 }}>
-				<img src={ReactSvg} alt="" style={{ marginRight: collapsed ? '2px' : '20px' }} />
 				<img src={AntdSvg} alt="" />
 			</div>
 			<div className={styles.layoutPageHeaderMain}>

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { IRouteConfig } from '../../router/typing'
 import { Layout } from 'antd'
 import Header from './components/header'
-import SideMenu from './components/side-menu'
+import SideMenu from '@src/menus'
 import Tags from './components/tags'
 import styles from './style.module.less'
 import { Route, Switch } from 'react-router-dom'
@@ -23,8 +23,8 @@ const Index: React.FC<IProps> = ({ routes }) => {
 		<Layout className={styles.layoutPage}>
 			<Header collapsed={collapsed} toggle={toggle} />
 			<Layout>
-				<Sider className="layout-page-sider" trigger={null} collapsible collapsed={collapsed} breakpoint="md">
-					<SideMenu layOutRoutes={routes} />
+				<Sider className={styles.layoutPageSider} trigger={null} collapsible collapsed={collapsed} breakpoint="md">
+					<SideMenu />
 				</Sider>
 				<Content className="layout-page-content">
 					<Tags />

@@ -1,3 +1,5 @@
-import OrderRoute from './order'
-import Login from './login'
-export default [...OrderRoute, ...Login]
+import LoginRoute from './login'
+import OrderManageRoute from './order-manage'
+import SupplierManageRoute from './supplier-manage'
+
+export default [...OrderManageRoute, ...SupplierManageRoute, ...LoginRoute]

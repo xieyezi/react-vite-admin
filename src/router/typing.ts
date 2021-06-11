@@ -9,7 +9,7 @@ export interface IRouteConfig {
 	component: React.ComponentType<any>
 	pageTitle?: string
 	breadcrumb: Ibreadcrumb[] // 面包屑导航
-	redirect?: string // 暂不使用
+	redirect?: string
 	useLayout?: boolean // 是否使用布局
 	strict?: boolean
 	sensitive?: boolean
