@@ -57,7 +57,7 @@ const Index: FC = () => {
 		}
 	}
 
-	// tab 和 path 双向绑定
+	// 页面刷新时加入 pathname 的tab
 	useEffect(() => {
 		if (menuList.length) {
 			const { pathname } = location
@@ -72,6 +72,14 @@ const Index: FC = () => {
 			}
 		}
 	}, [location.pathname])
+
+	// pathname 和 tab 绑定
+	useEffect(() => {
+		if (tags && activeTagId) {
+			const targetTab = tags.filter((e) => e.id === activeTagId)
+			history.push(targetTab[0].path)
+		}
+	}, [tags, activeTagId])
 
 	return (
 		<div id="pageTabs" style={{ background: '#fff', padding: '6px 4px' }}>
