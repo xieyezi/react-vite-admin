@@ -1,7 +1,8 @@
 import { defineConfig } from 'vite'
 import reactRefresh from '@vitejs/plugin-react-refresh'
-import { resolve } from 'path'
+import { viteMockServe } from 'vite-plugin-mock'
 import styleImport from 'vite-plugin-style-import'
+import { resolve } from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -16,6 +17,12 @@ export default defineConfig({
 	},
 	plugins: [
 		reactRefresh(),
+		// mock
+		viteMockServe({
+			mockPath: 'mock',
+			localEnabled: true
+		}),
+		// antd 按需引入
 		styleImport({
 			libs: [
 				{
@@ -30,6 +37,11 @@ export default defineConfig({
 			less: {
 				javascriptEnabled: true
 			}
+		},
+		modules: {
+			// 样式小驼峰转化
+			//css: goods-list => tsx: goodsList
+			localsConvention: 'camelCase'
 		}
 	}
 })

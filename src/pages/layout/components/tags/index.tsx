@@ -1,6 +1,6 @@
 import React, { FC, useCallback, useEffect } from 'react'
 import { Tabs } from 'antd'
-import { useHistory, useLocation } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import TagsViewAction from './tagAction'
 import useStore from '@src/stores/headerTag'
 import menuList, { MenuItem } from '@src/menus/config'
@@ -8,7 +8,7 @@ import menuList, { MenuItem } from '@src/menus/config'
 const { TabPane } = Tabs
 
 const Index: FC = () => {
-	const history = useHistory()
+	const navigate = useNavigate()
 	const location = useLocation()
 	const [tags, activeTagId, addTag, removeTag, setActiveTag] = useStore((state) => [
 		state.tags,
@@ -23,7 +23,7 @@ const Index: FC = () => {
 		const tag = tags.find((tag) => tag.id === key)
 		if (tag) {
 			setCurrentTag(tag.id)
-			history.push(tag.path)
+			navigate(tag.path)
 		}
 	}
 	const setCurrentTag = useCallback(
@@ -77,7 +77,7 @@ const Index: FC = () => {
 	useEffect(() => {
 		if (tags && activeTagId) {
 			const targetTab = tags.filter((e) => e.id === activeTagId)
-			history.push(targetTab[0].path)
+			navigate(targetTab[0].path)
 		}
 	}, [tags, activeTagId])
 

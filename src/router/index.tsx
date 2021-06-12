@@ -1,39 +1,57 @@
-import React from 'react'
-import { Route, Switch, BrowserRouter as Router } from 'react-router-dom'
-import routes from './config/index'
-import { splitTypeOfRoute, omitRouteRenderProperties } from './utils'
-import Layout from '../pages/layout'
-import Auth from '@components/auth'
+import React, { lazy, FC } from 'react'
+import { PartialRouteObject } from 'react-router'
+import WrapperRouteComponent from './config'
+import { useRoutes } from 'react-router-dom'
+import LoginPage from '@pages/login'
+import LayoutPage from '@pages/layout'
 
-const [basicRoute, layoutRoute] = splitTypeOfRoute(routes)
+const NotFound = lazy(() => import('@pages/not-found'))
+const OrderMangeList = lazy(() => import('@pages/order-manage/list'))
+const OrderMangeDetail = lazy(() => import('@pages/order-manage/detail'))
+const SupplierList = lazy(() => import('@pages/supplier-manage/list'))
+const SupplierDetail = lazy(() => import('@pages/supplier-manage/detail'))
+const SupplierAdd = lazy(() => import('@pages/supplier-manage/add'))
 
-const Index: React.FC = () => {
-	return (
-		<Router>
-			<Switch>
-				{basicRoute.map((item) => {
-					if (item.auth) {
-						return (
-							<Route
-								{...omitRouteRenderProperties(item)}
-								key={item.path}
-								render={() => {
-									const Comp = item.component
-									return (
-										<Auth redirect={item.redirect}>
-											<Comp />
-										</Auth>
-									)
-								}}
-							/>
-						)
-					}
-					return <Route {...omitRouteRenderProperties(item)} key={item.path} component={item.component} />
-				})}
-				<Route key="dashboard" path="/dashboard" component={() => <Layout routes={layoutRoute} />} />
-			</Switch>
-		</Router>
-	)
+const routeList: PartialRouteObject[] = [
+	{
+		path: 'login',
+		element: <WrapperRouteComponent element={<LoginPage />} titleId="title.login" />
+	},
+	{
+		path: '/dashboard',
+		element: <WrapperRouteComponent element={<LayoutPage />} titleId="dashboard" />,
+		children: [
+			{
+				path: 'order-list',
+				element: <WrapperRouteComponent element={<OrderMangeList />} titleId="title.order.list" auth />
+			},
+			{
+				path: 'order-detail',
+				element: <WrapperRouteComponent element={<OrderMangeDetail />} titleId="title.order.detail" auth />
+			},
+			{
+				path: 'supplier-list',
+				element: <WrapperRouteComponent element={<SupplierList />} titleId="title.supplier.list" auth />
+			},
+			{
+				path: 'supplier-detail',
+				element: <WrapperRouteComponent element={<SupplierDetail />} titleId="title.supplier.detail" auth />
+			},
+			{
+				path: 'supplier-add',
+				element: <WrapperRouteComponent element={<SupplierAdd />} titleId="title.supplier.add" auth />
+			},
+			{
+				path: '*',
+				element: <WrapperRouteComponent element={<NotFound />} titleId="title.notFount" />
+			}
+		]
+	}
+]
+
+const RenderRouter: FC = () => {
+	const element = useRoutes(routeList)
+	return element
 }
 
-export default Index
+export default RenderRouter
