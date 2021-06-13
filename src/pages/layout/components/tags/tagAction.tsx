@@ -29,7 +29,7 @@ const Index: FC = () => {
 			}
 		>
 			<span id="pageTabs-actions">
-				<SettingOutlined className="tagsView-extra" />
+				<SettingOutlined className="tags-extra" />
 			</span>
 		</Dropdown>
 	)

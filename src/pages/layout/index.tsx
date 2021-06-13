@@ -5,7 +5,7 @@ import SuspendFallbackLoading from './components/fallback-loading'
 import Header from './components/header'
 import SideMenu from '@src/menus'
 import Tags from './components/tags'
-import styles from './style.module.less'
+import './index.less'
 
 const { Sider, Content } = Layout
 
@@ -15,22 +15,15 @@ const Index: React.FC = () => {
 		setsCollapsed((collapsed) => !collapsed)
 	}
 	return (
-		<Layout className={styles.layoutPage}>
+		<Layout className="layout-page">
 			<Header collapsed={collapsed} toggle={toggle} />
 			<Layout>
-				<Sider className={styles.layoutPageSider} trigger={null} collapsible collapsed={collapsed} breakpoint="md">
+				<Sider className="layout-page-sider" trigger={null} collapsible collapsed={collapsed} breakpoint="md">
 					<SideMenu />
 				</Sider>
 				<Content className="layout-page-content">
 					<Tags />
-					<Suspense
-						fallback={
-							<SuspendFallbackLoading
-								message="Alert message title"
-								description="Further details about the context of this alert."
-							/>
-						}
-					>
+					<Suspense fallback={<SuspendFallbackLoading message="正在加载中" />}>
 						<Outlet />
 					</Suspense>
 				</Content>

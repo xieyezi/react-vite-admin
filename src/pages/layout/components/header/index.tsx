@@ -5,8 +5,8 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import AntdSvg from '/antd.svg'
 import genji from '@assets/image/husky.png'
-import styles from '../../style.module.less'
 import useStore from '@src/stores/user'
+import '../../index.less'
 
 const { Header } = Layout
 
@@ -60,19 +60,19 @@ const Index: FC<HeaderProps> = ({ collapsed, toggle }) => {
 		</Menu>
 	)
 	return (
-		<Header className={styles.layoutPageHeader}>
-			<div className={styles.logo} style={{ width: collapsed ? 80 : 200 }}>
+		<Header className="layout-page-header">
+			<div className="logo" style={{ width: collapsed ? 80 : 100 }}>
 				<img src={AntdSvg} alt="" />
 			</div>
-			<div className={styles.layoutPageHeaderMain}>
+			<div className="layout-page-header-main">
 				<div onClick={toggle}>
 					<span id="sidebar-trigger">{collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}</span>
 				</div>
-				<div className={styles.headerActions}>
+				<div className="actions">
 					{logged ? (
 						<Dropdown overlay={menu} trigger={['click']}>
-							<span className={styles.userActions}>
-								<img src={genji} className={styles.userAvator} alt="avator" />
+							<span className="user-action">
+								<img src={genji} className="user-avator" alt="avator" />
 							</span>
 						</Dropdown>
 					) : (

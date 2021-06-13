@@ -27,7 +27,7 @@ export default defineConfig({
 			libs: [
 				{
 					libraryName: 'antd',
-					resolveStyle: (name) => `antd/lib/${name}/style/index.less`
+					resolveStyle: (name) => `antd/es/${name}/style`
 				}
 			]
 		})
@@ -41,7 +41,7 @@ export default defineConfig({
 		modules: {
 			// 样式小驼峰转化
 			//css: goods-list => tsx: goodsList
-			localsConvention: 'camelCase'
+			// localsConvention: 'camelCase'
 		}
 	}
 })
