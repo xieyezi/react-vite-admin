@@ -5,7 +5,9 @@ import styleImport from 'vite-plugin-style-import'
 import { resolve } from 'path'
 
 // https://vitejs.dev/config/
+
 export default defineConfig({
+	base: './',
 	resolve: {
 		alias: {
 			'@src': resolve(__dirname, './src'),
@@ -38,10 +40,15 @@ export default defineConfig({
 				javascriptEnabled: true
 			}
 		},
-		modules: {
-			// 样式小驼峰转化
-			//css: goods-list => tsx: goodsList
-			// localsConvention: 'camelCase'
+		modules: {}
+	},
+	build: {
+		target: 'es2015',
+		minify: 'terser',
+		cssCodeSplit: true,
+		polyfillDynamicImport: true,
+		rollupOptions: {
+			plugins: []
 		}
 	}
 })
