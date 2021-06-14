@@ -63,7 +63,7 @@ const Index: FC<HeaderProps> = ({ collapsed, toggle }) => {
 		<Header className="layout-page-header">
 			<div className="logo" style={{ width: collapsed ? 80 : 200 }}>
 				<img src={AntdSvg} alt="logo" />
-				{collapsed ? null : <span style={{ paddingLeft: '10px', fontSize: '16px' }}>快召租车</span>}
+				{collapsed ? null : <span style={{ paddingLeft: '10px', fontSize: '16px' }}>React Vite Admin</span>}
 			</div>
 			<div className="layout-page-header-main">
 				<div onClick={toggle}>
