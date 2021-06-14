@@ -27,13 +27,12 @@ const Index: FC<HeaderProps> = ({ collapsed, toggle }) => {
 	const menuChange = async ({ key }: { key: string }) => {
 		switch (key) {
 			case '1':
-				navigate('/dashboard/order-list', { replace: true })
+				navigate('/order-list', { replace: true })
 				break
 			case '2': {
 				const res = await axios.post('/api/logout')
 				if (res.status == 200) {
 					logout()
-					navigate(`/login${'?from=' + encodeURIComponent(location.pathname)}`, { replace: true })
 				}
 				break
 			}

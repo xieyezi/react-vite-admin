@@ -19,7 +19,7 @@ const routeList: PartialRouteObject[] = [
 	},
 	{
 		path: '/',
-		element: <WrapperRouteComponent element={<LayoutPage />} titleId="工作台" />,
+		element: <WrapperRouteComponent element={<LayoutPage />} titleId="工作台" auth />,
 		children: [
 			{
 				path: 'order-list',
