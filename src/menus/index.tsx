@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Menu } from 'antd'
 import menus, { MenuItem } from './config'
-import { useHistory, useLocation } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import useStore from '@src/stores/headerTag'
 import union from 'lodash/union'
 
@@ -31,7 +31,7 @@ function findMenuByPath(menus: MenuItem[], path: string, keys: any[]): any {
 }
 
 const SideMenu: React.FC = () => {
-	const history = useHistory()
+	const navigate = useNavigate()
 	const { pathname } = useLocation()
 	const [openKeys, setOpenkeys] = useState<string[]>([])
 	const [selectedKeys, setSelectedKeys] = useState<string[]>([])
@@ -69,7 +69,7 @@ const SideMenu: React.FC = () => {
 			id: key,
 			closable: true
 		})
-		history.push(menu.path as string)
+		navigate(menu.path as string)
 	}
 
 	// 展开一个Menu

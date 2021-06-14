@@ -1,6 +1,4 @@
 import { FileTextOutlined, InboxOutlined } from '@ant-design/icons'
-import { ORDER_DETAIL, ORDER_LIST } from '@src/router/config/order-manage/path'
-import { SUPPLIER_DETAIL, SUPPLIER_LIST } from '@src/router/config/supplier-manage/path'
 
 export interface MenuItem {
 	key: string
@@ -20,16 +18,16 @@ const MENU_CONFIG: MenuItem[] = [
 			{
 				key: '1-1',
 				title: '订单列表',
-				path: ORDER_LIST
+				path: '/dashboard/order-list'
 			},
 			{
-				key: '1-1-1',
+				key: '1-2',
 				title: '二级菜单',
 				children: [
 					{
-						key: '1-1-1-1',
+						key: '1-1-1',
 						title: '三级菜单',
-						path: ORDER_DETAIL
+						path: '/dashboard/order-detail'
 					}
 				]
 			}
@@ -43,12 +41,23 @@ const MENU_CONFIG: MenuItem[] = [
 			{
 				key: '2-1',
 				title: '供应商列表',
-				path: SUPPLIER_LIST
+				path: '/dashboard/supplier-list'
 			},
 			{
 				key: '2-2',
-				title: '供应商订单详情',
-				path: SUPPLIER_DETAIL
+				title: '供应商二级',
+				children: [
+					{
+						key: '2-2-1',
+						title: '订单详情',
+						path: '/dashboard/supplier-detail'
+					},
+					{
+						key: '2-2-2',
+						title: '新增供应商',
+						path: '/dashboard/supplier-add'
+					}
+				]
 			}
 		]
 	}

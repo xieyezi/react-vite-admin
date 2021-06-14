@@ -1,0 +1,113 @@
+.layout-page {
+	height: 100%;
+	&-header {
+		padding: 0;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		z-index: 9;
+		background-color: #fff !important;
+		box-shadow: 0 4px 10px #dddddd;
+		&-main {
+			padding: 0 15px;
+			flex: 1;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		.logo {
+			height: 64px;
+			width: 200px;
+			box-sizing: border-box;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			z-index: 9;
+			img {
+				width: 30px;
+				height: 30px;
+			}
+		}
+	}
+	&-sider {
+		background-color: #fff !important;
+		box-sizing: border-box;
+		border-right: 1px solid #f0f0f0;
+		margin-bottom: 10px;
+	}
+	&-content {
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+		> :nth-child(1) .ant-tabs-bar {
+			padding: 6px 0 0;
+			background: #fff;
+		}
+
+		> :nth-child(2) {
+			flex: auto;
+			overflow-y: auto;
+			overflow-x: hidden;
+			margin: 8px;
+			box-sizing: border-box;
+			background-color: #fff;
+			// flex: auto;
+			// overflow: hidden;
+			// padding: 6px;
+			// box-sizing: border-box;
+			// .innerText {
+			//   background-color: #fff;
+			//   padding: 24px;
+			//   border-radius: 2px;
+			//   display: block;
+			//   line-height: 32px;
+			//   font-size: 16px;
+			// }
+		}
+	}
+	&-footer {
+		background-color: #ffffff !important;
+		text-align: center;
+		padding: 14px 20px;
+		font-size: 12px;
+	}
+	.actions {
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		> * {
+			margin-left: 30px;
+			height: 100%;
+			display: flex;
+			align-items: center;
+		}
+	}
+	.user-action {
+		cursor: pointer;
+	}
+	.user-avator {
+		margin-right: 8px;
+		width: 40px;
+		height: 40px;
+	}
+}
+
+.layout-page-sider-menu {
+	border-right: none !important;
+}
+.ant-layout-header {
+	padding: 0 !important;
+}
+.ant-menu-inline-collapsed {
+	width: 79px !important;
+}
+
+.tags-extra {
+	height: 100%;
+	width: 50px;
+	cursor: pointer;
+	display: block;
+	line-height: 40px;
+	text-align: center;
+}

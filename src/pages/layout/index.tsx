@@ -1,43 +1,31 @@
-import React, { useState } from 'react'
-import { IRouteConfig } from '../../router/typing'
+import React, { useState, Suspense } from 'react'
 import { Layout } from 'antd'
+import { Outlet } from 'react-router-dom'
+import SuspendFallbackLoading from './components/fallback-loading'
 import Header from './components/header'
 import SideMenu from '@src/menus'
 import Tags from './components/tags'
-import styles from './style.module.less'
-import { Route, Switch } from 'react-router-dom'
-import { omitRouteRenderProperties } from '@src/router/utils'
+import './index.less'
 
 const { Sider, Content } = Layout
 
-interface IProps {
-	routes: IRouteConfig[]
-}
-
-const Index: React.FC<IProps> = ({ routes }) => {
+const Index: React.FC = () => {
 	const [collapsed, setsCollapsed] = useState(false)
 	const toggle = () => {
 		setsCollapsed((collapsed) => !collapsed)
 	}
 	return (
-		<Layout className={styles.layoutPage}>
+		<Layout className="layout-page">
 			<Header collapsed={collapsed} toggle={toggle} />
 			<Layout>
-				<Sider className={styles.layoutPageSider} trigger={null} collapsible collapsed={collapsed} breakpoint="md">
+				<Sider className="layout-page-sider" trigger={null} collapsible collapsed={collapsed} breakpoint="md">
 					<SideMenu />
 				</Sider>
 				<Content className="layout-page-content">
 					<Tags />
-					<Switch>
-						{routes.map((route) => (
-							<Route
-								{...omitRouteRenderProperties(route)}
-								key={route.path}
-								component={route.component}
-								path={route.path}
-							/>
-						))}
-					</Switch>
+					<Suspense fallback={<SuspendFallbackLoading message="正在加载中" />}>
+						<Outlet />
+					</Suspense>
 				</Content>
 			</Layout>
 		</Layout>

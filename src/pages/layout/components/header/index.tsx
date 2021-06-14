@@ -1,10 +1,12 @@
-import React, { FC, useState } from 'react'
+import React, { FC } from 'react'
 import { LogoutOutlined, UserOutlined, MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons'
 import { Layout, Dropdown, Menu } from 'antd'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 import AntdSvg from '/antd.svg'
 import genji from '@assets/image/husky.png'
-import styles from '../../style.module.less'
+import useStore from '@src/stores/user'
+import '../../index.less'
 
 const { Header } = Layout
 
@@ -14,20 +16,27 @@ interface HeaderProps {
 }
 
 const Index: FC<HeaderProps> = ({ collapsed, toggle }) => {
-	const history = useHistory()
-	const [isLogin, setIsLogin] = useState(true)
+	const navigate = useNavigate()
+	const logged = useStore((state) => state.logged)
+	const logout = useStore((state) => state.logout)
+
 	const toLogin = () => {
-		history.replace('/')
+		navigate(`/login${'?from=' + encodeURIComponent(location.pathname)}`, { replace: true })
 	}
 
-	const menuChange = ({ key }: { key: string }) => {
+	const menuChange = async ({ key }: { key: string }) => {
 		switch (key) {
 			case '1':
-				history.replace('/dashboard')
+				navigate('/dashboard/order-list', { replace: true })
 				break
-			case '2':
-				setIsLogin(false)
+			case '2': {
+				const res = await axios.post('/api/logout')
+				if (res.status == 200) {
+					logout()
+					navigate(`/login${'?from=' + encodeURIComponent(location.pathname)}`, { replace: true })
+				}
 				break
+			}
 			default:
 				break
 		}
@@ -51,19 +60,20 @@ const Index: FC<HeaderProps> = ({ collapsed, toggle }) => {
 		</Menu>
 	)
 	return (
-		<Header className={styles.layoutPageHeader}>
-			<div className={styles.logo} style={{ width: collapsed ? 80 : 200 }}>
-				<img src={AntdSvg} alt="" />
+		<Header className="layout-page-header">
+			<div className="logo" style={{ width: collapsed ? 80 : 200 }}>
+				<img src={AntdSvg} alt="logo" />
+				{collapsed ? null : <span style={{ paddingLeft: '10px', fontSize: '16px' }}>快召租车</span>}
 			</div>
-			<div className={styles.layoutPageHeaderMain}>
+			<div className="layout-page-header-main">
 				<div onClick={toggle}>
 					<span id="sidebar-trigger">{collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}</span>
 				</div>
-				<div className={styles.headerActions}>
-					{isLogin ? (
+				<div className="actions">
+					{logged ? (
 						<Dropdown overlay={menu} trigger={['click']}>
-							<span className={styles.userActions}>
-								<img src={genji} className={styles.userAvator} alt="avator" />
+							<span className="user-action">
+								<img src={genji} className="user-avator" alt="avator" />
 							</span>
 						</Dropdown>
 					) : (
