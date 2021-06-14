@@ -15,35 +15,35 @@ const SupplierAdd = lazy(() => import('@pages/supplier-manage/add'))
 const routeList: PartialRouteObject[] = [
 	{
 		path: 'login',
-		element: <WrapperRouteComponent element={<LoginPage />} titleId="title.login" />
+		element: <WrapperRouteComponent element={<LoginPage />} titleId="登录" />
 	},
 	{
 		path: '/dashboard',
-		element: <WrapperRouteComponent element={<LayoutPage />} titleId="dashboard" />,
+		element: <WrapperRouteComponent element={<LayoutPage />} titleId="工作台" />,
 		children: [
 			{
 				path: 'order-list',
-				element: <WrapperRouteComponent element={<OrderMangeList />} titleId="title.order.list" auth />
+				element: <WrapperRouteComponent element={<OrderMangeList />} titleId="订单列表" auth />
 			},
 			{
 				path: 'order-detail',
-				element: <WrapperRouteComponent element={<OrderMangeDetail />} titleId="title.order.detail" auth />
+				element: <WrapperRouteComponent element={<OrderMangeDetail />} titleId="订单详情" auth />
 			},
 			{
 				path: 'supplier-list',
-				element: <WrapperRouteComponent element={<SupplierList />} titleId="title.supplier.list" auth />
+				element: <WrapperRouteComponent element={<SupplierList />} titleId="供应商列表" auth />
 			},
 			{
 				path: 'supplier-detail',
-				element: <WrapperRouteComponent element={<SupplierDetail />} titleId="title.supplier.detail" auth />
+				element: <WrapperRouteComponent element={<SupplierDetail />} titleId="供应商详情" auth />
 			},
 			{
 				path: 'supplier-add',
-				element: <WrapperRouteComponent element={<SupplierAdd />} titleId="title.supplier.add" auth />
+				element: <WrapperRouteComponent element={<SupplierAdd />} titleId="新增供应商" auth />
 			},
 			{
 				path: '*',
-				element: <WrapperRouteComponent element={<NotFound />} titleId="title.notFount" />
+				element: <WrapperRouteComponent element={<NotFound />} titleId="404" />
 			}
 		]
 	}

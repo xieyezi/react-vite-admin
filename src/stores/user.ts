@@ -13,6 +13,7 @@ export interface UserState {
 
 const useStore = create<UserState>(
 	persist<UserState>(
+		// eslint-disable-next-line @typescript-eslint/no-unused-vars
 		(set, get) => ({
 			username: '',
 			password: '',

@@ -61,8 +61,9 @@ const Index: FC<HeaderProps> = ({ collapsed, toggle }) => {
 	)
 	return (
 		<Header className="layout-page-header">
-			<div className="logo" style={{ width: collapsed ? 80 : 100 }}>
-				<img src={AntdSvg} alt="" />
+			<div className="logo" style={{ width: collapsed ? 80 : 200 }}>
+				<img src={AntdSvg} alt="logo" />
+				{collapsed ? null : <span style={{ paddingLeft: '10px', fontSize: '16px' }}>快召租车</span>}
 			</div>
 			<div className="layout-page-header-main">
 				<div onClick={toggle}>
