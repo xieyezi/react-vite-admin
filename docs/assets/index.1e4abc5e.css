@@ -1,0 +1,143 @@
+#root,
+#root > *,
+body,
+html {
+	height: 100%;
+}
+body {
+	font-size: 14px;
+	color: #333 !important;
+	margin: 0;
+}
+a {
+	text-decoration: underline;
+	cursor: pointer;
+}
+#searchForm > .ant-row > .ant-row.ant-form-item {
+	width: 100%;
+	text-align: right;
+	padding-right: 12px;
+}
+#searchForm > .ant-row > .ant-row.ant-form-item .ant-col {
+	flex: 1;
+	max-width: 100%;
+	width: 100%;
+}
+#searchForm > .ant-row > .ant-row.ant-form-item .ant-col .ant-btn:first-child {
+	margin-right: 10px;
+}
+.login-page {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #f0f2f5;
+}
+.login-page-form {
+	width: 300px;
+	padding: 50px 40px 10px;
+	border-radius: 10px;
+}
+.login-page-form h2 {
+	text-align: center;
+}
+.login-page-form_button {
+	width: 100%;
+}
+.layout-page {
+	height: 100%;
+}
+.layout-page-header {
+	padding: 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	z-index: 9;
+	background-color: #fff !important;
+	box-shadow: 0 4px 10px #ddd;
+}
+.layout-page-header-main {
+	padding: 0 15px;
+	flex: 1;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.layout-page-header .logo {
+	height: 64px;
+	width: 200px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 9;
+}
+.layout-page-header .logo img {
+	width: 30px;
+	height: 30px;
+}
+.layout-page-sider {
+	background-color: #fff !important;
+	box-sizing: border-box;
+	border-right: 1px solid #f0f0f0;
+	margin-bottom: 10px;
+}
+.layout-page-content {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+}
+.layout-page-content > :nth-child(1) .ant-tabs-bar {
+	padding: 6px 0 0;
+	background: #fff;
+}
+.layout-page-content > :nth-child(2) {
+	flex: auto;
+	overflow-y: auto;
+	overflow-x: hidden;
+	margin: 8px;
+	box-sizing: border-box;
+	background-color: #fff;
+}
+.layout-page-footer {
+	background-color: #fff !important;
+	text-align: center;
+	padding: 14px 20px;
+	font-size: 12px;
+}
+.layout-page .actions {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.layout-page .actions > * {
+	margin-left: 30px;
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+.layout-page .user-action {
+	cursor: pointer;
+}
+.layout-page .user-avator {
+	margin-right: 8px;
+	width: 40px;
+	height: 40px;
+}
+.layout-page-sider-menu {
+	border-right: none !important;
+}
+.ant-layout-header {
+	padding: 0 !important;
+}
+.ant-menu-inline-collapsed {
+	width: 79px !important;
+}
+.tags-extra {
+	height: 100%;
+	width: 50px;
+	cursor: pointer;
+	display: block;
+	line-height: 40px;
+	text-align: center;
+}
