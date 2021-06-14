@@ -14,11 +14,11 @@ const SupplierAdd = lazy(() => import('@pages/supplier-manage/add'))
 
 const routeList: PartialRouteObject[] = [
 	{
-		path: 'login',
+		path: '/login',
 		element: <WrapperRouteComponent element={<LoginPage />} titleId="登录" />
 	},
 	{
-		path: '/dashboard',
+		path: '/',
 		element: <WrapperRouteComponent element={<LayoutPage />} titleId="工作台" />,
 		children: [
 			{

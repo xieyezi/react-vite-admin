@@ -18,7 +18,7 @@ const MENU_CONFIG: MenuItem[] = [
 			{
 				key: '1-1',
 				title: '订单列表',
-				path: '/dashboard/order-list'
+				path: '/order-list'
 			},
 			{
 				key: '1-2',
@@ -27,7 +27,7 @@ const MENU_CONFIG: MenuItem[] = [
 					{
 						key: '1-1-1',
 						title: '三级菜单',
-						path: '/dashboard/order-detail'
+						path: '/order-detail'
 					}
 				]
 			}
@@ -41,7 +41,7 @@ const MENU_CONFIG: MenuItem[] = [
 			{
 				key: '2-1',
 				title: '供应商列表',
-				path: '/dashboard/supplier-list'
+				path: '/supplier-list'
 			},
 			{
 				key: '2-2',
@@ -50,12 +50,12 @@ const MENU_CONFIG: MenuItem[] = [
 					{
 						key: '2-2-1',
 						title: '订单详情',
-						path: '/dashboard/supplier-detail'
+						path: '/supplier-detail'
 					},
 					{
 						key: '2-2-2',
 						title: '新增供应商',
-						path: '/dashboard/supplier-add'
+						path: '/supplier-add'
 					}
 				]
 			}
