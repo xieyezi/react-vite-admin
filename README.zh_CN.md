@@ -7,19 +7,19 @@ English | [简体中文](./README.zh_CN.md)
 React Hooks + Vite + Antd + Zustand + Typescript 最佳实践。🚀.
 
 <a href="https://github.com/facebook/react">
-  <img src="https://img.shields.io/badge/react-17.0.0-purple" alt="React">
+  <img src="https://img.shields.io/badge/react-17.0.0-blueviolet" alt="React">
 </a>
 <a href="https://github.com/vitejs/vite">
-  <img src="https://img.shields.io/badge/vite-2.3.7-purple" alt="ant-design">
+  <img src="https://img.shields.io/badge/vite-2.3.7-blueviolet" alt="ant-design">
 </a>
 <a href="https://github.com/ant-design/ant-design">
-  <img src="https://img.shields.io/badge/ant--design-4.16.2-purple" alt="ant-design">
+  <img src="https://img.shields.io/badge/ant--design-4.16.2-blueviolet" alt="ant-design">
 </a>
 <a href="https://github.com/pmndrs/zustand" rel="nofollow">
-  <img src="https://img.shields.io/badge/zustand-4.0.5-purple" alt="Redux">
+  <img src="https://img.shields.io/badge/zustand-4.0.5-blueviolet" alt="Redux">
 </a>
 <a href="https://github.com/microsoft/TypeScript" rel="nofollow">
-  <img src="https://img.shields.io/badge/typescript-4.3.2-purple" alt="Typescript">
+  <img src="https://img.shields.io/badge/typescript-4.3.2-blueviolet" alt="Typescript">
 </a>
 </div>
 
