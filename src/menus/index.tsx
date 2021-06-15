@@ -3,6 +3,7 @@ import { Menu } from 'antd'
 import menus, { MenuItem } from './config'
 import { useNavigate, useLocation } from 'react-router-dom'
 import useStore from '@src/stores/headerTag'
+import useUserStore from '@src/stores/user'
 import union from 'lodash/union'
 
 const { SubMenu } = Menu
@@ -35,6 +36,7 @@ const SideMenu: React.FC = () => {
 	const { pathname } = useLocation()
 	const [openKeys, setOpenkeys] = useState<string[]>([])
 	const [selectedKeys, setSelectedKeys] = useState<string[]>([])
+	const locale = useUserStore((state) => state.locale)
 	const addTag = useStore((state) => state.addTag)
 
 	// 首次进入时，默认选择第一项
@@ -43,7 +45,7 @@ const SideMenu: React.FC = () => {
 			const { key, path, title } = menus[0].children[0]
 			addTag({
 				path: path as string,
-				label: title,
+				label: title[locale],
 				id: key,
 				closable: false
 			})
@@ -65,7 +67,7 @@ const SideMenu: React.FC = () => {
 		const { key, path, title } = menu
 		addTag({
 			path: path as string,
-			label: title,
+			label: title[locale],
 			id: key,
 			closable: true
 		})
@@ -89,7 +91,7 @@ const SideMenu: React.FC = () => {
 						title={
 							<>
 								{renderIcon(menu.icon)}
-								<span>{menu.title}</span>
+								<span>{menu.title[locale]}</span>
 							</>
 						}
 					>
@@ -98,8 +100,8 @@ const SideMenu: React.FC = () => {
 				)
 			}
 			return (
-				<Menu.Item key={menu.key} title={menu.title} onClick={() => handleMenuClick(menu)}>
-					{menu.title}
+				<Menu.Item key={menu.key} title={menu.title[locale]} onClick={() => handleMenuClick(menu)}>
+					{menu.title[locale]}
 				</Menu.Item>
 			)
 		})

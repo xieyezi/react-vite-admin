@@ -7,13 +7,15 @@ import { ConfigProvider } from 'antd'
 import enUS from 'antd/es/locale/en_US'
 import zhCN from 'antd/es/locale/zh_CN'
 import RenderRouter from './router'
+import useStore from './stores/user'
 
 export type Locale = 'zh_CN' | 'en_US'
 
 const queryClient = new QueryClient()
 
 function App() {
-	const locale: Locale = (localStorage.getItem('locale') || 'en_US') as Locale
+	const locale = useStore((state) => state.locale)
+
 	const getAntdLocale = () => {
 		if (locale === 'en_US') {
 			return enUS

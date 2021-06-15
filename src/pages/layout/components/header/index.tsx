@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 import { LogoutOutlined, UserOutlined, MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons'
 import { Layout, Dropdown, Menu } from 'antd'
 import { useNavigate } from 'react-router-dom'
+import { useLocale } from '@src/locales'
 import axios from 'axios'
 import AntdSvg from '/antd.svg'
 import genji from '@assets/image/husky.png'
@@ -19,6 +20,7 @@ const Index: FC<HeaderProps> = ({ collapsed, toggle }) => {
 	const navigate = useNavigate()
 	const logged = useStore((state) => state.logged)
 	const logout = useStore((state) => state.logout)
+	const { formatMessage } = useLocale()
 
 	const toLogin = () => {
 		navigate(`/login${'?from=' + encodeURIComponent(location.pathname)}`, { replace: true })
@@ -46,14 +48,14 @@ const Index: FC<HeaderProps> = ({ collapsed, toggle }) => {
 			<Menu.Item key="1">
 				<span>
 					<UserOutlined />
-					<span>个人设置</span>
+					<span>{formatMessage({ id: 'layout.heaer.usersetting' })}</span>
 				</span>
 			</Menu.Item>
 			<Menu.Divider />
 			<Menu.Item key="2">
 				<span>
 					<LogoutOutlined />
-					<span>退出登录</span>
+					<span>{formatMessage({ id: 'layout.heaer.logout' })}</span>
 				</span>
 			</Menu.Item>
 		</Menu>
@@ -77,7 +79,7 @@ const Index: FC<HeaderProps> = ({ collapsed, toggle }) => {
 						</Dropdown>
 					) : (
 						<span style={{ cursor: 'pointer' }} onClick={toLogin}>
-							登录
+							{formatMessage({ id: 'login.submit' })}
 						</span>
 					)}
 				</div>

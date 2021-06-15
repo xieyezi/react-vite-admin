@@ -18,7 +18,14 @@ const Index: React.FC = () => {
 		<Layout className="layout-page">
 			<Header collapsed={collapsed} toggle={toggle} />
 			<Layout>
-				<Sider className="layout-page-sider" trigger={null} collapsible collapsed={collapsed} breakpoint="md">
+				<Sider
+					className="layout-page-sider"
+					trigger={null}
+					collapsible
+					collapsed={collapsed}
+					width={264}
+					breakpoint="md"
+				>
 					<SideMenu />
 				</Sider>
 				<Content className="layout-page-content">

@@ -3,6 +3,7 @@ import { Tabs } from 'antd'
 import { useNavigate, useLocation } from 'react-router-dom'
 import TagsViewAction from './tagAction'
 import useStore from '@src/stores/headerTag'
+import useUserStore from '@src/stores/user'
 import menuList, { MenuItem } from '@src/menus/config'
 
 const { TabPane } = Tabs
@@ -10,6 +11,7 @@ const { TabPane } = Tabs
 const Index: FC = () => {
 	const navigate = useNavigate()
 	const location = useLocation()
+	const locale = useUserStore((state) => state.locale)
 	const [tags, activeTagId, addTag, removeTag, setActiveTag] = useStore((state) => [
 		state.tags,
 		state.activeTagId,
@@ -65,7 +67,7 @@ const Index: FC = () => {
 			if (menu) {
 				addTag({
 					path: menu.path as string,
-					label: menu.title,
+					label: menu.title[locale],
 					id: menu.key,
 					closable: true
 				})

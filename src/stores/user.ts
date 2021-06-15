@@ -1,3 +1,4 @@
+import { Locale } from '@src/App'
 import create from 'zustand'
 import { persist } from 'zustand/middleware'
 
@@ -7,6 +8,7 @@ export interface UserState {
 	password: string
 	role: string
 	token: string
+	locale: Locale
 	login: (payload: { username: string; role: string; password: string; token: string }) => void
 	logout: () => void
 }
@@ -19,6 +21,7 @@ const useStore = create<UserState>(
 			password: '',
 			role: '',
 			token: '',
+			locale: 'en_US',
 			logged: false,
 			login: ({ username, password, role, token }) => {
 				localStorage.setItem('username', username)
