@@ -5,7 +5,8 @@ import { useNavigate } from 'react-router-dom'
 import { useLocale } from '@src/locales'
 import axios from 'axios'
 import AntdSvg from '/antd.svg'
-import genji from '@assets/image/husky.png'
+import genji from '@assets/logo/husky.png'
+import language from '@assets/header/language.svg'
 import useStore from '@src/stores/user'
 import '../../index.less'
 
@@ -18,8 +19,10 @@ interface HeaderProps {
 
 const Index: FC<HeaderProps> = ({ collapsed, toggle }) => {
 	const navigate = useNavigate()
+	const locale = useStore((state) => state.locale)
 	const logged = useStore((state) => state.logged)
 	const logout = useStore((state) => state.logout)
+	const setLocale = useStore((state) => state.setLocale)
 	const { formatMessage } = useLocale()
 
 	const toLogin = () => {
@@ -41,6 +44,10 @@ const Index: FC<HeaderProps> = ({ collapsed, toggle }) => {
 			default:
 				break
 		}
+	}
+
+	const selectLocale = ({ key }: { key: any }) => {
+		setLocale(key)
 	}
 
 	const menu = (
@@ -71,6 +78,23 @@ const Index: FC<HeaderProps> = ({ collapsed, toggle }) => {
 					<span id="sidebar-trigger">{collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}</span>
 				</div>
 				<div className="actions">
+					<Dropdown
+						trigger={['click']}
+						overlay={
+							<Menu onClick={selectLocale}>
+								<Menu.Item style={{ textAlign: 'left' }} disabled={locale === 'zh_CN'} key="zh_CN">
+									🇨🇳 简体中文
+								</Menu.Item>
+								<Menu.Item style={{ textAlign: 'left' }} disabled={locale === 'en_US'} key="en_US">
+									🇱🇷 English
+								</Menu.Item>
+							</Menu>
+						}
+					>
+						<span>
+							<img src={language} alt="language" id="language-change" style={{ width: '20px', height: '20px' }} />
+						</span>
+					</Dropdown>
 					{logged ? (
 						<Dropdown overlay={menu} trigger={['click']}>
 							<span className="user-action">

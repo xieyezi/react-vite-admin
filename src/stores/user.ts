@@ -11,6 +11,7 @@ export interface UserState {
 	locale: Locale
 	login: (payload: { username: string; role: string; password: string; token: string }) => void
 	logout: () => void
+	setLocale: (key: Locale) => void
 }
 
 const useStore = create<UserState>(
@@ -45,7 +46,8 @@ const useStore = create<UserState>(
 					token: '',
 					logged: false
 				})
-			}
+			},
+			setLocale: (key) => set({ locale: key })
 		}),
 		{
 			name: 'user'
