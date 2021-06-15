@@ -6,11 +6,13 @@ import Header from './components/header'
 import SideMenu from '@src/menus'
 import Tags from './components/tags'
 import './index.less'
+import useStore from '@src/stores/user'
 
 const { Sider, Content } = Layout
 
 const Index: React.FC = () => {
 	const [collapsed, setsCollapsed] = useState(false)
+	const locale = useStore((state) => state.locale)
 	const toggle = () => {
 		setsCollapsed((collapsed) => !collapsed)
 	}
@@ -23,7 +25,7 @@ const Index: React.FC = () => {
 					trigger={null}
 					collapsible
 					collapsed={collapsed}
-					width={264}
+					width={locale === 'en_US' ? 264 : 200}
 					breakpoint="md"
 				>
 					<SideMenu />
