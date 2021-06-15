@@ -67,7 +67,7 @@ const Index: FC = () => {
 			if (menu) {
 				addTag({
 					path: menu.path as string,
-					label: menu.title[locale],
+					label: menu.title,
 					id: menu.key,
 					closable: true
 				})
@@ -95,7 +95,7 @@ const Index: FC = () => {
 				tabBarExtraContent={<TagsViewAction />}
 			>
 				{tags.map((tag) => (
-					<TabPane tab={tag.label} key={tag.id} closable={tag.closable} />
+					<TabPane tab={tag.label[locale]} key={tag.id} closable={tag.closable} />
 				))}
 			</Tabs>
 		</div>

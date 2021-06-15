@@ -45,7 +45,7 @@ const SideMenu: React.FC = () => {
 			const { key, path, title } = menus[0].children[0]
 			addTag({
 				path: path as string,
-				label: title[locale],
+				label: title,
 				id: key,
 				closable: false
 			})
@@ -67,7 +67,7 @@ const SideMenu: React.FC = () => {
 		const { key, path, title } = menu
 		addTag({
 			path: path as string,
-			label: title[locale],
+			label: title,
 			id: key,
 			closable: true
 		})

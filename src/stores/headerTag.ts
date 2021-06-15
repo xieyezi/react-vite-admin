@@ -3,7 +3,7 @@ import create from 'zustand'
 export type TagItem = {
 	id: string
 	path: string
-	label: string
+	label: { zh_CN: string; en_US: string }
 	closable: boolean
 }
 
