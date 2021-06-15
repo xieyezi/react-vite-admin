@@ -14,7 +14,8 @@ export default defineConfig({
 			'@assets': resolve(__dirname, './src/assets'),
 			'@components': resolve(__dirname, './src/components'),
 			'@pages': resolve(__dirname, './src/pages'),
-			'@uitl': resolve(__dirname, './src/uitl')
+			'@uitl': resolve(__dirname, './src/uitl'),
+			'@locale': resolve(__dirname, './src/locale')
 		}
 	},
 	plugins: [

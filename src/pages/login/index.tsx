@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Button, Form, Input } from 'antd'
 import { useNavigate, useLocation } from 'react-router-dom'
 import useStore from '@src/stores/user'
+import { useLocale } from '@src/locales'
 import './index.less'
 
 const initialValues = {
@@ -16,6 +17,7 @@ type LoginParams = typeof initialValues
 const LoginForm: FC = () => {
 	const navigate = useNavigate()
 	const location = useLocation()
+	const { formatMessage } = useLocale()
 	const login = useStore((state) => state.login)
 
 	const onFinished = async (form: LoginParams) => {
@@ -37,19 +39,25 @@ const LoginForm: FC = () => {
 	return (
 		<div className="login-page">
 			<Form onFinish={onFinished} className="login-page-form" initialValues={initialValues}>
-				<h2>登录</h2>
-				<Form.Item name="username" rules={[{ required: true, message: '请输入用户名！' }]}>
-					<Input placeholder="用户名" />
+				<h2>{formatMessage({ id: 'login.submit' })}</h2>
+				<Form.Item
+					name="username"
+					rules={[{ required: true, message: formatMessage({ id: 'login.username.message' }) }]}
+				>
+					<Input placeholder={formatMessage({ id: 'login.username' })} />
 				</Form.Item>
-				<Form.Item name="password" rules={[{ required: true, message: '请输入密码！' }]}>
-					<Input type="password" placeholder="密码" />
+				<Form.Item
+					name="password"
+					rules={[{ required: true, message: formatMessage({ id: 'login.password.message' }) }]}
+				>
+					<Input type="password" placeholder={formatMessage({ id: 'login.password' })} />
 				</Form.Item>
-				<Form.Item name="role" rules={[{ required: true, message: '请输入角色！' }]}>
-					<Input type="role" placeholder="密码" />
+				<Form.Item name="role" rules={[{ required: true, message: formatMessage({ id: 'login.role' }) }]}>
+					<Input type="role" placeholder={formatMessage({ id: 'login.role.message' })} />
 				</Form.Item>
 				<Form.Item>
 					<Button htmlType="submit" type="primary" className="login-page-form_button">
-						登录
+						{formatMessage({ id: 'login.submit' })}
 					</Button>
 				</Form.Item>
 			</Form>

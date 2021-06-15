@@ -20,7 +20,8 @@
 			"@assets/*": ["src/assets/*"],
 			"@components/*": ["src/components/*"],
 			"@uitl/*": ["src/uitl/*"],
-			"@pages/*": ["src/pages/*"]
+			"@pages/*": ["src/pages/*"],
+			"@locale/*": ["src/locale/*"]
 		}
 	},
 	"include": ["./src"]
