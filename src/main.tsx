@@ -9,3 +9,6 @@ ReactDOM.render(
 	// </React.StrictMode>,
 	document.getElementById('root')
 )
+
+// 这里要将严格模式注释掉的原因是，Antd的Button组件会报警告
+// 请看isses:https://github.com/ant-design/ant-design/issues/22493

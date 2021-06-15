@@ -2,6 +2,7 @@
 	"version": "0.0.0",
 	"scripts": {
 		"dev": "vite",
+		"start": "vite",
 		"build": "tsc && vite build",
 		"preview": "vite preview",
 		"prepare": "husky install",
@@ -15,8 +16,8 @@
 		"antd": "^4.16.2",
 		"axios": "^0.21.1",
 		"history": "^5.0.0",
-		"react": "^17.0.0",
-		"react-dom": "^17.0.0",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
 		"react-query": "^3.16.1",
 		"react-router-dom": "6.0.0-beta.0",
 		"zustand": "^3.5.2"
