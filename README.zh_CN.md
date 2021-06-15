@@ -52,7 +52,7 @@ $ npm run dev
 ```
 
 ## 🔨 构建
-
+```
 # yarn
 $ yarn install
 $ yarn build
