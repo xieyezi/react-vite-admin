@@ -44,11 +44,11 @@ $ cd react-vite-admin
 
 # yarn
 $ yarn install
-$ yarn start
+$ yarn dev
 
 # npm
-$ npm install
-$ npm start
+$ npm run install
+$ npm run dev
 ```
 
 ## 🔨 Build
