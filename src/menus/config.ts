@@ -34,7 +34,7 @@ const MENU_CONFIG: MenuItem[] = [
 				},
 				children: [
 					{
-						key: '1-1-1',
+						key: '1-2-1',
 						title: {
 							zh_CN: '三级菜单',
 							en_US: 'three level menu'

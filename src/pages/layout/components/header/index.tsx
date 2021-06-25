@@ -4,10 +4,10 @@ import { Layout, Dropdown, Menu } from 'antd'
 import { useNavigate } from 'react-router-dom'
 import { useLocale } from '@src/locales'
 import axios from 'axios'
-import AntdSvg from '/antd.svg'
 import genji from '@assets/logo/husky.png'
 import language from '@assets/header/language.svg'
 import useStore from '@src/stores/user'
+import Breadcrumb from '../breadcrumb'
 import '../../index.less'
 
 const { Header } = Layout
@@ -69,13 +69,12 @@ const Index: FC<HeaderProps> = ({ collapsed, toggle }) => {
 	)
 	return (
 		<Header className="layout-page-header">
-			<div className="logo" style={{ width: collapsed ? 80 : 200 }}>
-				<img src={AntdSvg} alt="logo" />
-				{collapsed ? null : <span style={{ paddingLeft: '10px', fontSize: '16px' }}>React Vite Admin</span>}
-			</div>
 			<div className="layout-page-header-main">
-				<div onClick={toggle}>
-					<span id="sidebar-trigger">{collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}</span>
+				<div className="breadcrumb">
+					<div onClick={toggle} style={{ marginRight: '20px' }}>
+						<span id="sidebar-trigger">{collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}</span>
+					</div>
+					<Breadcrumb />
 				</div>
 				<div className="actions">
 					<Dropdown

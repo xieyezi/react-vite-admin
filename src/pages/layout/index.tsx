@@ -5,8 +5,9 @@ import SuspendFallbackLoading from './components/fallback-loading'
 import Header from './components/header'
 import SideMenu from '@src/menus'
 import Tags from './components/tags'
-import './index.less'
+import Logo from './components/logo'
 import useStore from '@src/stores/user'
+import './index.less'
 
 const { Sider, Content } = Layout
 
@@ -18,7 +19,6 @@ const Index: React.FC = () => {
 	}
 	return (
 		<Layout className="layout-page">
-			<Header collapsed={collapsed} toggle={toggle} />
 			<Layout>
 				<Sider
 					className="layout-page-sider"
@@ -28,14 +28,18 @@ const Index: React.FC = () => {
 					width={locale === 'en_US' ? 264 : 200}
 					breakpoint="md"
 				>
+					<Logo collapsed={collapsed} />
 					<SideMenu />
 				</Sider>
-				<Content className="layout-page-content">
-					<Tags />
-					<Suspense fallback={<SuspendFallbackLoading message="正在加载中" />}>
-						<Outlet />
-					</Suspense>
-				</Content>
+				<Layout>
+					<Header collapsed={collapsed} toggle={toggle} />
+					<Content className="layout-page-content">
+						<Tags />
+						<Suspense fallback={<SuspendFallbackLoading message="loading..." />}>
+							<Outlet />
+						</Suspense>
+					</Content>
+				</Layout>
 			</Layout>
 		</Layout>
 	)
