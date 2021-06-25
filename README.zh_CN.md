@@ -33,6 +33,7 @@ React Hooks + Vite + Antd + Zustand + Typescript 最佳实践。🚀.
 - 🚀 **最新技术栈**: 使用 React/hooks/vite/antd/zustand/typescript 等前端前沿技术开发
 - ⚙️ **最佳实践**: 良好的工程实践助您持续产出高质量代码
 - 🔢 **Mock 数据**: 实用的本地数据调试方案
+- 🌐 **国际化**: 内建业界通用的国际化方案
 - ✅ **使用**: 完整的文档和详细的注释，无阻碍使用
 
 ## 📦 使用

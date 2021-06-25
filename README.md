@@ -33,6 +33,7 @@ The best practices for React Hooks + Vite + Antd + Zustand + Typescript🚀.
 - 🚀 **State of The Art Development**: Newest development stack of React/hooks/Zustand/antd/typescript
 - ⚙️ **Best Practices**: Solid workflow to make your code healthy
 - 🔢 **Mock development**: Easy to use mock development solution
+- 🌐 **International**: Built-in i18n solution
 - ✅ **Usage**: No barriers to use with complete documentation and detailed comments
 
 ## 📦 Install
