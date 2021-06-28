@@ -7,6 +7,7 @@ import axios from 'axios'
 import genji from '@assets/logo/husky.png'
 import language from '@assets/header/language.svg'
 import useStore from '@src/stores/user'
+import HeaderNoticeComponent from '../notice'
 import Breadcrumb from '../breadcrumb'
 import '../../index.less'
 
@@ -77,6 +78,7 @@ const Index: FC<HeaderProps> = ({ collapsed, toggle }) => {
 					<Breadcrumb />
 				</div>
 				<div className="actions">
+					<HeaderNoticeComponent />
 					<Dropdown
 						trigger={['click']}
 						overlay={
@@ -91,7 +93,12 @@ const Index: FC<HeaderProps> = ({ collapsed, toggle }) => {
 						}
 					>
 						<span>
-							<img src={language} alt="language" id="language-change" style={{ width: '20px', height: '20px' }} />
+							<img
+								src={language}
+								alt="language"
+								id="language-change"
+								style={{ width: '20px', height: '20px', cursor: 'pointer' }}
+							/>
 						</span>
 					</Dropdown>
 					{logged ? (
