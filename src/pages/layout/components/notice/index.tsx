@@ -2,7 +2,7 @@ import React, { FC, useState, useEffect } from 'react'
 import { Tabs, Dropdown, Badge, Spin, List, Avatar, Tag } from 'antd'
 import { LoadingOutlined } from '@ant-design/icons'
 import { Notice, EventStatus } from '../../../../../mock/notice'
-import { NotificationOutlined } from '@ant-design/icons'
+import { SoundOutlined } from '@ant-design/icons'
 import axios from 'axios'
 import '../../index.less'
 
@@ -12,8 +12,8 @@ const { TabPane } = Tabs
 
 const HeaderNoticeComponent: FC = () => {
 	const [visible, setVisible] = useState(false)
-	const [noticeList, setNoticeList] = useState<Notice[]>([])
 	const [loading, setLoading] = useState(false)
+	const [noticeList, setNoticeList] = useState<Notice[]>([])
 
 	const noticeListFilter = <T extends Notice['type']>(type: T) => {
 		return noticeList.filter((notice) => notice.type === type) as Notice<T>[]
@@ -105,9 +105,9 @@ const HeaderNoticeComponent: FC = () => {
 				borderRadius: 4
 			}}
 		>
-			<Badge count={20} overflowCount={999}>
+			<Badge count={noticeList.length} overflowCount={999}>
 				<span className="notice" id="notice-center">
-					<NotificationOutlined style={{ fontSize: '20px' }} />
+					<SoundOutlined style={{ fontSize: '20px' }} />
 				</span>
 			</Badge>
 		</Dropdown>
