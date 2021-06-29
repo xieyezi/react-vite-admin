@@ -15,7 +15,8 @@ export default defineConfig({
 			'@components': resolve(__dirname, './src/components'),
 			'@pages': resolve(__dirname, './src/pages'),
 			'@uitl': resolve(__dirname, './src/uitl'),
-			'@locale': resolve(__dirname, './src/locale')
+			'@locale': resolve(__dirname, './src/locale'),
+			'@mock': resolve(__dirname, './mock')
 		}
 	},
 	plugins: [

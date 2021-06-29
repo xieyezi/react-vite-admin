@@ -21,7 +21,8 @@
 			"@components/*": ["src/components/*"],
 			"@uitl/*": ["src/uitl/*"],
 			"@pages/*": ["src/pages/*"],
-			"@locale/*": ["src/locale/*"]
+			"@locale/*": ["src/locale/*"],
+			"@mock/*": ["mock/*"]
 		}
 	},
 	"include": ["./src"]
