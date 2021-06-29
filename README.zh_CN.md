@@ -36,7 +36,7 @@ React Hooks + Vite + Antd + Zustand + Typescript 最佳实践。🚀.
 - 🌐 **国际化**: 内建业界通用的国际化方案
 - ✅ **使用**: 完整的文档和详细的注释，无阻碍使用
 
-## preview
+## ⚡preview
 
 ![dashboard.png](https://i.loli.net/2021/06/29/Q8DqaBeK4NngzE1.png)
 
