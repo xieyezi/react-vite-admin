@@ -36,6 +36,11 @@ The best practices for React Hooks + Vite + Antd + Zustand + Typescript🚀.
 - 🌐 **International**: Built-in i18n solution
 - ✅ **Usage**: No barriers to use with complete documentation and detailed comments
 
+
+
+![dashboard.png](https://i.loli.net/2021/06/29/Q8DqaBeK4NngzE1.png)
+
+
 ## 📦 Install
 
 ```bash
