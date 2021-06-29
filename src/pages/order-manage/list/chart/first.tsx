@@ -110,7 +110,7 @@ const Index: React.FC<Props> = ({ fistChartLeftData }) => {
 				<Col span={6}>
 					<div className="right">
 						<Liquid {...rightConfig} style={{ height: '400px' }} />
-						<h3>季度目标已完成</h3>
+						<h3>季度目标完成百分比</h3>
 					</div>
 				</Col>
 			</Row>

@@ -1,7 +1,9 @@
+import { Footer } from 'antd/lib/layout/layout'
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import FirstChart from './chart/first'
 import SecondChart from './chart/second'
+import ThirdChart from './chart/third'
 import './index.less'
 
 const Index: React.FC = () => {
@@ -21,9 +23,11 @@ const Index: React.FC = () => {
 	}, [])
 
 	return (
-		<div>
+		<div className="container">
 			<FirstChart fistChartLeftData={fistChartLeftData} />
 			<SecondChart />
+			<ThirdChart />
+			<Footer style={{ textAlign: 'center' }}>React Vite Admin ©2021 Created by xieyezi</Footer>
 		</div>
 	)
 }

@@ -9,11 +9,17 @@ body {
 	font-size: 14px;
 	color: #333 !important;
 	margin: 0;
+	overflow: auto;
 }
 
 a {
 	text-decoration: underline;
 	cursor: pointer;
+}
+/*隐藏滚动条*/
+::-webkit-scrollbar {
+	width: 0px;
+	height: 0px;
 }
 
 #searchForm > .ant-row > .ant-row.ant-form-item {
