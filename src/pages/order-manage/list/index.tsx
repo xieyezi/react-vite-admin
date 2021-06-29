@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import FirstChart from './chart/first'
+import SecondChart from './chart/second'
 import './index.less'
 
 const Index: React.FC = () => {
@@ -21,8 +22,8 @@ const Index: React.FC = () => {
 
 	return (
 		<div>
-			{/*fisrt chart  */}
 			<FirstChart fistChartLeftData={fistChartLeftData} />
+			<SecondChart />
 		</div>
 	)
 }

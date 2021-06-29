@@ -2,6 +2,8 @@ import { DualAxes, Liquid } from '@ant-design/charts'
 import { Col, Radio, Row } from 'antd'
 import React from 'react'
 import { firstChartLeftDataType } from '@mock/dashboard'
+import { CaretUpOutlined } from '@ant-design/icons'
+
 import '../index.less'
 
 interface Props {
@@ -68,28 +70,6 @@ const Index: React.FC<Props> = ({ fistChartLeftData }) => {
 					return item.value === 'income' ? '销售金额(元)' : '完成时间(秒)'
 				}
 			}
-		},
-		annotations: {
-			income: [
-				{
-					type: 'line',
-					top: true,
-					start: ['2020-08-26', 'min'],
-					end: ['2020-08-26', 'max'],
-					text: {
-						content: '发布时间点',
-						position: 'end',
-						autoRotate: false,
-						style: { textAlign: 'start' }
-					}
-				}
-			],
-			completeTime: [
-				{
-					type: 'line',
-					top: true
-				}
-			]
 		}
 	}
 	const rightConfig = {
@@ -112,12 +92,24 @@ const Index: React.FC<Props> = ({ fistChartLeftData }) => {
 								<Radio.Button value="month">按月</Radio.Button>
 							</Radio.Group>
 						</div>
-						<DualAxes {...leftConfig} style={{ height: '300px', marginTop: '10px' }} />
+						<DualAxes {...leftConfig} style={{ height: '360px', marginTop: '10px' }} />
+						<div className="footer">
+							<span>
+								比去年同期：
+								<CaretUpOutlined style={{ fontSize: '12px', color: '#3bbd94' }} />
+								18.23%
+							</span>
+							<span>
+								比前年同期：
+								<CaretUpOutlined style={{ fontSize: '12px', color: '#3bbd94' }} />
+								32.15%
+							</span>
+						</div>
 					</div>
 				</Col>
 				<Col span={6}>
 					<div className="right">
-						<Liquid {...rightConfig} style={{ height: '320px' }} />
+						<Liquid {...rightConfig} style={{ height: '400px' }} />
 						<h3>季度目标已完成</h3>
 					</div>
 				</Col>
